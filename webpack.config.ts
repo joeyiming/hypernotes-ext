@@ -37,7 +37,15 @@ const config: Configuration = {
             },
           },
         ],
-      }
+      },
+      {
+        test: /\.html$/i,
+        loader: "html-loader",
+      },
+      {
+        test: /\.css$/i,
+        use: ["to-string-loader", "css-loader"],
+      },
     ],
   },
   resolve: {
