@@ -25,6 +25,12 @@ function createFrame(){
   iframe.style.top = "0px";
   iframe.style.right = "0px";
   iframe.style.zIndex = "9000000000000000000";
+
+  let title = document.createElement('h1');
+  title.textContent='Hello';
+
+  iframe.contentDocument.body.appendChild(title);
+  
   return iframe;
 }
 

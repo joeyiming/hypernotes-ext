@@ -5,11 +5,11 @@
   "manifest_version": 3,
     "action": {
       "default_icon": { 
-        "16": "images/icon.png",
-        "24": "images/icon.png",
-        "32": "images/icon.png"
+        "16": "img/icon.png",
+        "24": "img/icon.png",
+        "32": "img/icon.png"
       },
-      "default_title": "切换工作状态"
+      "default_title": "Hypernotes App"
     },
   "background": {
     "service_worker": "index.js"
@@ -20,9 +20,9 @@
     "scripting"
   ],
   "icons": {
-    "16": "/images/icon.png",
-    "32": "/images/icon.png",
-    "48": "/images/icon.png",
-    "128": "/images/icon.png"
+    "16": "/img/icon.png",
+    "32": "/img/icon.png",
+    "48": "/img/icon.png",
+    "128": "/img/icon.png"
   }
 }

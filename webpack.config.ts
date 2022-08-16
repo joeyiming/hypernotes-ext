@@ -1,9 +1,7 @@
 import path from "path";
 import { Configuration } from "webpack";
 
-const GenerateJsonPlugin = require('generate-json-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
-const manifest = require('./src/manifest.json');
 
 const config: Configuration = {
   entry: {
@@ -51,10 +49,13 @@ const config: Configuration = {
     clean: true
   },
   plugins: [
-    new GenerateJsonPlugin('manifest.json', manifest),
     new CopyPlugin({
       patterns: [
-        {from: 'src/images', to: 'images'}
+        {from: 'src/img', to: 'img'},
+        {from: 'src/style', to: 'style'},
+        {from: 'src/manifest.json', to: 'manifest.json', toType:'file'},
+        { from: 'src/sidebar.html', to: 'sidebar.html', toType:'file'},
+        { from: 'src/index.html', to: 'index.html', toType:'file'},
       ]
     })
   ]

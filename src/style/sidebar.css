@@ -1,0 +1,128 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  background-color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+aside {
+  color: green;
+  background-color: antiquewhite;
+}
+
+.topbar {
+  width: 100%;
+  margin-right: 10%;
+  max-height: 10vh;
+  flex: initial;
+  background: #fff;
+  display: flex;
+  border: 1px #ecebec solid;
+}
+
+.topbar img{
+  width: 16px;
+  height: 16px;
+}
+
+.group-title {
+  /* background-color: aliceblue; */
+  width: 80%;
+  padding: 5px 20px 10px;
+  font-weight: 800;
+  display: flex;
+}
+
+.group-icon img{
+  padding-top: 5px;
+}
+
+.group-btn img {
+  padding-top: 5px;
+}
+
+.group-name {
+  font-size: 20px;
+  padding: 0 4px;
+}
+
+.group-btns {
+  width: 20%;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 8px;
+}
+
+.user-btn {
+  width: 16px;
+}
+
+.more-btn {
+  width: 16px;
+}
+
+.main {
+  width: 95%;
+  /* margin-left: 5%; */
+  padding: 20px;
+  max-height: 90vh;
+  flex: auto;
+  background: #ecebec;
+}
+
+.tabbar {
+  display: flex;
+  font-size: 18px;
+  gap: 20px;
+  margin-bottom: 16px;
+}
+
+
+.ann-cards {
+  /* margin: 20px; */
+}
+
+.ann-card {
+  padding: 1.1rem;
+  background: #fff;
+  border: #ecebec;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.ann-card header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.ann-user {
+  font-weight: 700;
+}
+
+.ann-date {
+  opacity: 0.5;
+}
+
+.ann-content {
+  margin: .6rem;
+  border-left: 4px #ccc solid;
+  padding-left: .5rem;
+}
+
+.toolbar {
+  display: flex;
+  justify-content: end;
+  gap: 8px;
+  font-size: .9rem;
+}
