@@ -1,7 +1,15 @@
 import path from "path";
 import { Configuration } from "webpack";
+
+const GenerateJsonPlugin = require('generate-json-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
+const manifest = require('./src/manifest.json');
+
 const config: Configuration = {
-  entry: "./src/index.ts",
+  entry: {
+    index: "./src/index.ts",
+    contentScript: "./src/content.ts",
+  },
   mode: 'development',
   devtool: 'cheap-module-source-map',
   watch: true,
@@ -21,6 +29,17 @@ const config: Configuration = {
           },
         },
       },
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 8192,
+            },
+          },
+        ],
+      }
     ],
   },
   resolve: {
@@ -28,8 +47,17 @@ const config: Configuration = {
   },
   output: {
     path: path.resolve(__dirname, "build"),
-    filename: "extension.bundle.js",
-  }
+    filename: "[name].js",
+    clean: true
+  },
+  plugins: [
+    new GenerateJsonPlugin('manifest.json', manifest),
+    new CopyPlugin({
+      patterns: [
+        {from: 'src/images', to: 'images'}
+      ]
+    })
+  ]
 };
 
 export default config;

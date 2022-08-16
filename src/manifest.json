@@ -12,7 +12,7 @@
       "default_title": "切换工作状态"
     },
   "background": {
-    "service_worker": "background.js"
+    "service_worker": "index.js"
   },
   "permissions": [
     "storage",

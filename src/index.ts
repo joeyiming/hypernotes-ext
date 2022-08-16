@@ -1,5 +1,6 @@
 import { Extension } from "./extension";
 
+
 function init(){
   const extension = new Extension();
 
@@ -15,7 +16,7 @@ function init(){
     chrome.tabs.sendMessage(tab.id, { state: workState });
     chrome.scripting.executeScript({
       target: { tabId: tab.id },
-      files: ['js/content.js']
+      files: ['./contentScript.js']
     });
   });
 
