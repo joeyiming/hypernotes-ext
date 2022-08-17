@@ -1,12 +1,13 @@
+// content script
+// 执行于隔离环境，直接与页面 DOM 交互，支持部分 chrome api
 // https://developer.chrome.com/docs/extensions/mv3/content_scripts/
 import html from "./sidebar.html";
 import css from "./style/sidebar.css";
 
+// 成功加载 content script
 console.log('[content.js] loaded');
-// console.log(html);
-// console.log(css);
 
-
+// 与 service worker 通信
 chrome.runtime.onMessage.addListener(function (msg, sender) {
   let iframe = document.getElementById("sidebar");
   console.log(iframe);
@@ -17,6 +18,7 @@ chrome.runtime.onMessage.addListener(function (msg, sender) {
   }
 });
 
+// 创建侧边栏
 if (document.getElementById("sidebar") === null || document.getElementById("sidebar") === undefined) {
   let iframe = createFrame();
   document.body.appendChild(iframe);
@@ -28,6 +30,18 @@ if (document.getElementById("sidebar") === null || document.getElementById("side
   console.log(iframe);
 }
 
+// 监听选择文本事件
+document.onmouseup = handleSelection;
+
+// 处理选择文本，高亮或标注
+function handleSelection(event) {
+  let selection = document.getSelection().toString();
+  if (selection !== '') {
+    console.log(selection);
+  }
+}
+
+// 创建侧边栏方法
 function createFrame(){
   let iframe = document.createElement('iframe');
   iframe.setAttribute("id", "sidebar");
@@ -36,6 +50,7 @@ function createFrame(){
   iframe.style.top = "0px";
   iframe.style.right = "0px";
   iframe.style.border = "none";
+  iframe.style.zIndex = "999";
   
   return iframe;
 }
