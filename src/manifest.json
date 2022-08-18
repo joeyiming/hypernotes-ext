@@ -24,5 +24,16 @@
     "32": "/img/icon.png",
     "48": "/img/icon.png",
     "128": "/img/icon.png"
-  }
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "img/*",
+        "style/*"
+      ],
+      "matches": [
+        "https://*/*"
+      ]
+    }
+  ]
 }
